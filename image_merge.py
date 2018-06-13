@@ -1,12 +1,15 @@
 from PIL import Image
 
 
-def merge(img1, img2):
+def merge(image1_path, image2_path):
     '''
     Merge two images. The second one will be merged into the first one.
-    INPUT: First image, Second image
+    INPUT: Path to the first image, path to the second image
     OUTPUT: A new merged image.
     '''
+    
+    img1 = Image.open(image1_path)
+    img2 = Image.open(image2_path)
 
     # Ensure image 1 is larger than image 2
     if img2.size[0] > img1.size[0] or img2.size[1] > img1.size[1]:
@@ -36,15 +39,19 @@ def merge(img1, img2):
 
             pixels_new[i, j] = binary_to_integer(rgb)
 
+    new_image.convert('RGB').save('merged.png')
+    
     return new_image
 
 
-def unmerge(img):
+def unmerge(image_path):
     '''
     Unmerge an image.
-    INPUT: The input image.
-    OUTPUT: The unmerged/extracted image.
+    INPUT: The path to the input image.
+    OUTPUT: The extracted hidden image.
     '''
+    
+    img = Image.open(image_path)
 
     # Load the pixel map
     pixel_map = img.load()
@@ -78,6 +85,8 @@ def unmerge(img):
     # Crop the image based on the 'valid' pixels
     new_image = new_image.crop((0, 0, original_size[0], original_size[1]))
 
+    new_image.save('unmerged.png')
+    
     return new_image
 
 

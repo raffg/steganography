@@ -50,6 +50,8 @@ def encrypt(image_path, text_path):
     with open(image_path.replace('.bmp', '_hidden.bmp'), 'wb') as out:
         out.write(bmpa)
 
+    return bmpa
+
 
 def decrypt(image_path):
     with open(image_path, 'rb') as bmp_file:
