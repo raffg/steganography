@@ -5,7 +5,8 @@ def encrypt(image_path, text_path):
     '''
     Encrypt a string inside an image using the least significant bits method
     INPUT: string, a path to an image file; string, a path to a text file
-    OUTPUT: a bitmap image saved in the root folder with _hidden.bmp appended to the filename
+    OUTPUT: a bitmap image saved in the root folder with _hidden.bmp appended
+            to the filename
     '''
 
     # check if image is already a bitmap
@@ -35,7 +36,7 @@ def encrypt(image_path, text_path):
         # a byte can at max be 8 digits long, i.e. 0b11111111 = 255
         # we start at the left most bit (position 7) and work down to 0
         for j in range(7, -1, -1):
-            #Create the logic array of bits for our data
+            # create the logic array of bits for our data
             bits.append(nth_bit_present(msg[i], j))
 
     data_array = bits
