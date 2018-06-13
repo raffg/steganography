@@ -50,6 +50,8 @@ def encrypt(image_path, text_path):
 
     with open(image_path.replace('.bmp', '_hidden.bmp'), 'wb') as out:
         out.write(bmpa)
+    print('\nCover image with secret message saved as original filename'
+          ' with "_hidden.bmp" appended\n')
 
     return bmpa
 
@@ -88,8 +90,10 @@ def decrypt(image_path):
 
     with open("hidden_message.txt", "w") as text_file:
         text_file.write(msg)
-
-    print(msg)
+    print('Hidden message:')
+    print(msg, '\n')
+    print('===========================================')
+    print('Hidden message saved as "hidden_message.txt"\n')
 
 
 def nth_bit_present(my_byte, n):

@@ -7,7 +7,7 @@ def merge(image1_path, image2_path):
     INPUT: Path to the first image, path to the second image
     OUTPUT: A new merged image.
     '''
-    
+
     img1 = Image.open(image1_path)
     img2 = Image.open(image2_path)
 
@@ -40,7 +40,8 @@ def merge(image1_path, image2_path):
             pixels_new[i, j] = binary_to_integer(rgb)
 
     new_image.convert('RGB').save('merged.png')
-    
+    print('\nMerged image saved as "merged.png"\n')
+
     return new_image
 
 
@@ -50,7 +51,7 @@ def unmerge(image_path):
     INPUT: The path to the input image.
     OUTPUT: The extracted hidden image.
     '''
-    
+
     img = Image.open(image_path)
 
     # Load the pixel map
@@ -86,7 +87,8 @@ def unmerge(image_path):
     new_image = new_image.crop((0, 0, original_size[0], original_size[1]))
 
     new_image.save('unmerged.png')
-    
+    print('\nHidden image saved as "unmerged.png"\n')
+
     return new_image
 
 
