@@ -44,7 +44,7 @@ def encrypt(image_path, text_path):
     assert len(data_array) < len(bmpa) + start_offset
 
     for i in range(len(data_array)):
-        bmpa[i + start_offset] = set_final_bit(bmpa[i + start_offset], 
+        bmpa[i + start_offset] = set_final_bit(bmpa[i + start_offset],
                                                data_array[i])
 
     with open(image_path.replace('.bmp', '_hidden.bmp'), 'wb') as out:
@@ -57,7 +57,7 @@ def decrypt(image_path):
     with open(image_path, 'rb') as bmp_file:
         bmp = bmp_file.read()
 
-    # color data begins with the byte at position 10
+    # color data begins at the byte at position 10
     start_offset = bmp[10]
 
     # deconstruct each byte and get its final bit
