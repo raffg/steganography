@@ -1,4 +1,18 @@
-# Steganography: How Spies Rickroll Each Other
+# Steganography
+
+Usage: run `steganography.py` from terminal with a required argument of a path to an image file and an optional argument of a path to another image file or a text file. If one argument is given, the program will assume it already has encoded information and will decode it. If two arguments are given, the program will encode data from the second argument into the first image. The encoded/decoded image or decoded text file is saved to the root folder.
+
+Example:
+```
+>> python steganography.py cover_image.jpg text_to_hide.txt
+```
+Output:
+```
+cover_image_hidden.bmp
+```
+---
+# How Spies Rickroll Each Other
+
 >ste·ga·no·graph·y  
 > \ ˌste-gə-ˈnä-grə-fē \  
 >noun
